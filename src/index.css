@@ -1,0 +1,730 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2E7D32;
+  --color-secondary: #2E2E2E;
+  --color-tertiary: #E8F5E9;
+  --color-tertiary1: #DFE7D4;
+  --color-tertiary2: #343434;
+  --color-border: #C8E6C9;
+  --color-danger: #ea5455;
+  --color-label: #92979D;
+  --color-label1: #666;
+  --color-table: #F0F0F0;
+  --color-border-3: #2E7D32;
+  --color-border-2: #DCDCDC;
+  --color-border-4: #E1E0E1;
+  --color-bg-light1: #E4E6DE;
+  --color-bg-light: #E5E5E533;
+  --shadow-inner-full: inset 0 0 10px 0 rgba(0, 0, 0, 0.05);
+  --shadow-full: 0 0 15px 0 rgba(0, 0, 0, 0.08);
+  --shadow-premium: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* @theme {
+  --breakpoint-sm: 320px;
+  --breakpoint-md: 375px;
+  --breakpoint-lg: 426px;
+  --breakpoint-xl: 600px;
+  --breakpoint-2xl: 768px;
+  --breakpoint-3xl: 1024px;
+} */
+
+@theme {
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 28px;
+  --font-size-5xl: 32px;
+  --font-size-6xl: 42px;
+}
+
+body {
+  @apply bg-white;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html.dark {
+  --color-secondary: #E5E7EB;
+  --color-tertiary: #1F2937;
+  --color-tertiary1: #111827;
+  --color-label: #9CA3AF;
+  --color-label1: #D1D5DB;
+  --color-table: #1F2937;
+  --color-border: #334155;
+  --color-border-2: #334155;
+  --color-border-4: #334155;
+  --color-bg-light1: #111827;
+  --color-bg-light: #1F2937;
+}
+
+.app-theme-bg {
+  background-color: #ffffff;
+}
+
+.app-theme-text {
+  color: #111827;
+}
+
+html.dark .app-theme-bg {
+  background-color: #0F172A;
+}
+
+html.dark .app-theme-text {
+  color: #E5E7EB;
+}
+
+html.dark body {
+  background-color: #0F172A;
+  color: #E5E7EB;
+}
+
+html.dark .bg-white {
+  background-color: #111827 !important;
+}
+
+html.dark .text-gray-700,
+html.dark .text-gray-800,
+html.dark .text-gray-900,
+html.dark .text-black {
+  color: #E5E7EB !important;
+}
+
+container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-0;
+}
+
+h1 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(28px, 5vw, 42px);
+  /* Scales from 28px to 42px */
+  font-weight: 700;
+}
+
+heading {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(26px, 4vw, 32px);
+  /* Scales from 28px to 42px */
+}
+
+h2 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(20px, 3.5vw, 26px);
+  /* Scales from 20px to 26px */
+  font-weight: 700;
+}
+
+h3 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(18px, 3vw, 24px);
+  /* Scales from 18px to 24px */
+}
+
+h4 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(16px, 2.5vw, 22px);
+  /* Scales from 16px to 22px */
+}
+
+h5 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(14px, 2vw, 18px);
+  /* Scales from 14px to 18px */
+}
+
+h6 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(12px, 1.5vw, 16px);
+  /* Scales from 12px to 16px */
+}
+
+subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(12px, 1vw, 14px);
+  /* Scales from 12px to 16px */
+  display: block;
+}
+
+p {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* durations must match ANIM_MS in component (400ms) */
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.4s ease-in forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-slideOutRight {
+  animation: slideOutRight 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Global Table Styles */
+.data-table-container {
+  @apply relative overflow-x-auto;
+}
+
+.data-table {
+  @apply w-full border-separate border-spacing-y-2;
+}
+
+.data-table thead tr {
+  @apply bg-white shadow-sm rounded-2xl overflow-hidden;
+}
+
+.data-table thead tr th {
+  @apply px-6 py-4 text-[14px] font-semibold text-[#57606A] uppercase first:rounded-l-2xl last:rounded-r-2xl;
+}
+
+.data-table tbody tr {
+  @apply bg-white hover:bg-[#F8FAF8] transition-all duration-200 rounded-2xl overflow-hidden shadow-sm text-[#1E1E1E];
+}
+
+.data-table tbody tr td {
+  @apply px-6 py-4 text-[15px] first:rounded-l-2xl last:rounded-r-2xl;
+}
+
+/* Swiper Custom Pagination Styles */
+.swiper-pagination-custom .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #D1D5DB;
+  opacity: 1;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet:hover {
+  background: #10B981;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  width: 32px;
+  background: #2E7D32;
+}
+
+.language-select-btn {
+  padding-inline: 12px !important;
+  gap: 8px !important;
+}
+
+.language-select-btn-ar {
+  padding-inline: 16px !important;
+}
+
+.language-select-btn-ar span[class*="selectValue"] {
+  gap: 10px !important;
+}
+
+.language-select-btn-ar span[class*="label"] {
+  padding-left: 0 !important;
+}
+
+.language-select-root span[class*="selectOptionValue"] {
+  display: flex;
+  align-items: center;
+  gap: 10px !important;
+}
+
+.language-select-root span[class*="selectOptionValue"] span[class*="label"] {
+  padding-left: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* FullCalendar Custom Styling */
+
+/* Calendar Container */
+.fc {
+  font-family: inherit;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.fc .fc-view-harness {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* FullCalendar Structure - Fix for sticky header */
+.fc-view-harness-active {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Container - Fixed at top (not inside scroller) */
+.fc .fc-col-header {
+  position: relative;
+  z-index: 10;
+  background-color: white;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow-y: hidden !important;
+}
+
+.fc .fc-col-header-cell {
+  background-color: #FBFDFF;
+  border-color: #F1F5F9;
+  padding: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #64748B;
+}
+
+/* Scrollable Body Container - Only body scrolls, header stays fixed */
+.fc-scroller {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  flex: 1 1 auto;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fc-scroller-liquid-absolute {
+  position: relative;
+}
+
+/* TimeGrid Body */
+.fc .fc-timegrid-body {
+  position: relative;
+}
+
+.fc .fc-scroller-harness {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Ensure header row container doesn't scroll */
+.fc .fc-col-header-container {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  overflow-y: hidden !important;
+}
+
+/* Header row - ensure proper width */
+.fc .fc-col-header-row {
+  width: 100%;
+}
+
+/* Time Column */
+.fc .fc-timegrid-slot-label {
+  border-color: #F1F5F9;
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* Grid Lines */
+.fc .fc-timegrid-slot {
+  height: 120px;
+  border-color: #F8FAFC;
+}
+
+.fc .fc-timegrid-col {
+  border-color: #F8FAFC;
+}
+
+/* Event Styling */
+.fc-event {
+  border-radius: 8px !important;
+  padding: 6px 10px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  border-width: 1px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  margin-bottom: 4px !important;
+  width: calc(100% - 4px) !important;
+  position: relative !important;
+}
+
+.fc-event:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important;
+  z-index: 10 !important;
+}
+
+/* Event Title */
+.fc-event-title {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Event Time */
+.fc-event-time {
+  font-size: 10px !important;
+  opacity: 0.8;
+  margin-right: 6px;
+}
+
+/* Full Row Layout for Events - Keep within slot boundaries */
+.fc-timegrid-event-harness {
+  position: relative !important;
+  left: 2px !important;
+  right: 2px !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Stack events vertically in full rows */
+.fc-timegrid-event {
+  border-radius: 8px !important;
+  position: relative !important;
+}
+
+/* Events container - use flexbox for proper stacking */
+.fc .fc-timegrid-col-events {
+  margin: 4px 2px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+}
+
+/* Ensure events don't overflow the slot */
+.fc .fc-timegrid-col-frame {
+  position: relative;
+  overflow: visible;
+}
+
+/* Make sure event container respects slot boundaries */
+.fc-timegrid-event-harness-inset {
+  position: relative !important;
+}
+
+/* Today Highlight */
+.fc .fc-day-today {
+  background-color: transparent !important;
+}
+
+.fc .fc-day-today .fc-col-header-cell-cushion {
+  color: #2E7D32;
+  font-weight: 600;
+}
+
+/* Remove default borders */
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border-color: #F1F5F9;
+}
+
+/* Scrollbar Styling */
+.fc-scroller::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.fc-scroller::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 10px;
+}
+
+.fc-scroller::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 10px;
+}
+
+.fc-scroller::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Now Indicator */
+.fc .fc-timegrid-now-indicator-line {
+  border-color: #EF4444;
+  border-width: 2px;
+}
+
+.fc .fc-timegrid-now-indicator-arrow {
+  border-color: #EF4444;
+}
+
+/* Mobile Responsive Styles - Keep same width, enable horizontal scroll */
+@media (max-width: 640px) {
+
+  /* Calendar container - maintain desktop width, enable horizontal scroll */
+  .fc {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Header container - maintain desktop width */
+  .fc .fc-col-header {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Header cells - keep desktop styling */
+  .fc .fc-col-header-cell {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Day header text */
+  .fc .fc-col-header-cell-cushion {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  /* Time column - keep desktop width */
+  .fc .fc-timegrid-slot-label {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  /* Time column container - keep desktop width */
+  .fc .fc-timegrid-axis {
+    width: auto !important;
+    min-width: auto !important;
+  }
+
+  /* Grid slot height - keep desktop height */
+  .fc .fc-timegrid-slot {
+    height: 120px;
+    min-height: 120px;
+  }
+
+  /* Event styling - keep desktop styling */
+  .fc-event {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Event title */
+  .fc-event-title {
+    font-size: 11px !important;
+  }
+
+  /* Scroller - smooth scrolling on mobile */
+  .fc-scroller {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Tablet Responsive Styles */
+@media (min-width: 641px) and (max-width: 1024px) {
+
+  /* Header cells */
+  .fc .fc-col-header-cell {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  /* Time column */
+  .fc .fc-timegrid-slot-label {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+
+  /* Grid slot height */
+  .fc .fc-timegrid-slot {
+    height: 100px;
+  }
+
+  /* Event styling */
+  .fc-event {
+    padding: 5px 8px !important;
+    font-size: 10px !important;
+  }
+}
+
+/* Mobile and Tablet: Enable horizontal scrolling, maintain desktop width */
+@media (max-width: 1024px) {
+
+  /* Calendar container - allow horizontal scroll */
+  .fc {
+    overflow-x: visible;
+  }
+
+  /* View harness - allow horizontal scroll */
+  .fc .fc-view-harness {
+    overflow-x: visible;
+  }
+
+  /* Scroller harness - enable horizontal scroll */
+  .fc .fc-scroller-harness {
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Scroller - enable horizontal scroll */
+  .fc-scroller {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+  }
+
+  /* Timegrid body - maintain natural width */
+  .fc-timegrid-body {
+    width: 100%;
+  }
+
+  /* Ensure header scrolls with body horizontally */
+  .fc .fc-col-header {
+    overflow-x: visible !important;
+  }
+
+  .fc .fc-col-header-container {
+    overflow-x: visible !important;
+  }
+}
+
+/* Large screens - ensure proper spacing */
+@media (min-width: 1025px) {
+  .fc .fc-col-header-cell {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .fc .fc-timegrid-slot {
+    height: 120px;
+  }
+}
+
+@keyframes bounce-subtle {
+
+  0%,
+  100% {
+    transform: translateY(-5%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s infinite;
+}
+
+.ReactFlagsSelect-module_selectBtn__19wW7 {
+ border: none !important;
+ padding: 0 !important;
+}

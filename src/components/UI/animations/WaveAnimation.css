@@ -1,0 +1,35 @@
+.wave-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 8px;
+}
+
+.ekg-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    animation: ekg-scroll linear infinite;
+}
+
+.ekg-2 {
+    animation-delay: -1s;
+}
+
+/* EKG scrolling animation - moves from right to left */
+@keyframes ekg-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.ekg-path {
+    vector-effect: non-scaling-stroke;
+}
