@@ -13,18 +13,29 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { NAV } from "./ConfigNav";
+import { useTranslation } from 'react-i18next'; // Add this import
 
 const SideBar = ({
   isOpen = false,
-  onClose = () => { },
+  onClose = () => {},
   portal = "client",
   onHoverChange,
 }) => {
+  const { i18n } = useTranslation(); // Add this hook
   const location = useLocation();
   const menu = useMemo(() => NAV[portal] ?? NAV.client, [portal]);
   const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState({});
+
+  // Check if current language is RTL (Arabic)
+  const isRTL = i18n.language === 'ar';
+  
+  // Set document direction
+  useEffect(() => {
+    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language, isRTL]);
 
   // Sync hover state to laundry
   useEffect(() => {
@@ -55,10 +66,10 @@ const SideBar = ({
   }, [isOpen, onClose]);
 
   const coreItems = menu.filter(
-    (item) => item.label !== "Settings" && item.label !== "Logout"
+    (item) => item.label !== "Settings" && item.label !== "Logout",
   );
   const bottomItems = menu.filter(
-    (item) => item.label === "Settings" || item.label === "Logout"
+    (item) => item.label === "Settings" || item.label === "Logout",
   );
 
   const toggleSubmenu = (id) => {
@@ -67,12 +78,13 @@ const SideBar = ({
       [id]: !prev[id],
     }));
   };
+  
   // ✅ Check if any submenu of a menu item is active by current route
   const isAnySubmenuActive = (submenus = []) =>
     submenus.some(
       (s) =>
         location.pathname === s.href ||
-        location.pathname.startsWith(`${s.href}/`)
+        location.pathname.startsWith(`${s.href}/`),
     );
 
   // ✅ Build a lookup: { [id]: true/false } based on current route
@@ -94,7 +106,7 @@ const SideBar = ({
       submenus.some(
         (submenu) =>
           location.pathname === submenu.href ||
-          location.pathname.startsWith(`${submenu.href}/`)
+          location.pathname.startsWith(`${submenu.href}/`),
       );
 
     const isActive =
@@ -113,7 +125,7 @@ const SideBar = ({
         key={id}
         className={[
           "mb-2",
-          isGroupOpen ? "bg-[#E9F7E9] rounded-2xl p-2" : "", // same light bg for laundry+submenu
+          isGroupOpen ? "bg-[#E9F7E9] rounded-2xl p-2" : "",
         ].join(" ")}
       >
         {/* Laundry Row */}
@@ -129,21 +141,21 @@ const SideBar = ({
           className={[
             "relative flex items-center gap-3 cursor-pointer px-4 py-3 group transition-all duration-300",
             "rounded-2xl overflow-hidden",
-            // when group open: keep laundry in same green bg + text dark
             isGroupOpen ? "bg-[#E9F7E9] text-gray-800" : "",
-            // normal states
             !isGroupOpen && isActive ? "text-white" : "",
             !isGroupOpen && !isActive ? "text-gray-600 hover:text-white" : "",
           ].join(" ")}
         >
-          {/* Gradient only when laundry is ACTIVE and NOT in group-open mode (because group-open uses light bg) */}
+          {/* Gradient only when laundry is ACTIVE and NOT in group-open mode */}
           {!isGroupOpen && (
             <div
               className={[
                 "rounded-[22px] absolute inset-0 z-0 bg-[linear-gradient(96deg,#2E7D32_0.45%,#66BB6A_75.9%)] transition-transform duration-500 ease-in-out",
                 isActive
                   ? "translate-x-0"
-                  : "-translate-x-full group-hover:translate-x-0",
+                  : isRTL 
+                    ? "translate-x-full group-hover:translate-x-0" // RTL animation
+                    : "-translate-x-full group-hover:translate-x-0", // LTR animation
               ].join(" ")}
             />
           )}
@@ -157,7 +169,10 @@ const SideBar = ({
               ].join(" ")}
             />
             {badge && (
-              <span className="absolute -top-1 -right-1.5 z-20 flex items-center justify-center h-[18px] w-[18px] text-[10px] font-bold rounded-full bg-orange-500 text-white border-2 border-white">
+              <span className={[
+                "absolute -top-1 z-20 flex items-center justify-center h-4.5 w-4.5 text-[10px] font-bold rounded-full bg-orange-500 text-white border-2 border-white",
+                isRTL ? "-left-1.5" : "-right-1.5" // RTL badge position
+              ].join(" ")}>
                 {badge}
               </span>
             )}
@@ -174,7 +189,11 @@ const SideBar = ({
               {isExpanded ? (
                 <ChevronDown size={18} />
               ) : (
-                <ChevronRight size={18} />
+                // Rotate chevron based on RTL/LTR
+                <ChevronRight 
+                  size={18} 
+                  className={isRTL ? "rotate-180" : ""} 
+                />
               )}
             </div>
           )}
@@ -195,7 +214,6 @@ const SideBar = ({
                   onClick={onClose}
                   className={[
                     "flex items-center justify-between px-4 py-2 rounded-xl text-sm transition-all duration-200",
-                    // ✅ Active submenu dark/gradient like screenshot
                     isSubActive
                       ? "text-white bg-[linear-gradient(96deg,#2E7D32_0.45%,#66BB6A_75.9%)]"
                       : "hover:text-white hover:bg-primary",
@@ -227,12 +245,15 @@ const SideBar = ({
         />
       )}
 
-      {/* Mobile Sidebar */}
+      {/* Mobile Sidebar - Direction based on RTL */}
       <aside
         className={[
-          "fixed z-9999 top-0 left-0 h-screen w-64 lg:hidden",
+          "fixed z-9999 top-0 h-screen w-64 lg:hidden",
           "transform transition-transform duration-300 ease-out",
-          isOpen ? "translate-x-0" : "-translate-x-full",
+          isRTL ? "right-0" : "left-0", // RTL positioning
+          isOpen 
+            ? isRTL ? "translate-x-0" : "translate-x-0"
+            : isRTL ? "translate-x-full" : "-translate-x-full", // RTL animation
         ].join(" ")}
         style={{
           background: "white",
@@ -263,26 +284,25 @@ const SideBar = ({
         </nav>
       </aside>
 
-      {/* Desktop Sidebar (Hover Expand) */}
+      {/* Desktop Sidebar - RTL positioning */}
       <aside
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => {
           setHovered(false);
-
-          // ✅ Close only those submenus which are NOT active
           setExpandedMenus((prev) => {
             const next = {};
             Object.keys(prev).forEach((key) => {
-              if (activeSubmenuMap[key]) next[key] = true; // keep open if active
+              if (activeSubmenuMap[key]) next[key] = true;
             });
             return next;
           });
         }}
         className={`
           hidden lg:flex flex-col
-          fixed top-21 left-4 bottom-6
+          fixed top-21 bottom-6
+          ${isRTL ? "right-4" : "left-4"} // RTL positioning
           ${hovered ? "w-64" : "w-20"}
-          bg-white rounded-[16px] shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+          bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]
           transition-all duration-300 ease-in-out
           z-100 overflow-hidden
         `}

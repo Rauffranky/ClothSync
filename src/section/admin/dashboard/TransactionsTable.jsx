@@ -4,7 +4,6 @@ import StatusChipNew from "../../../components/UI/StatusChipNew";
 import DataTable from "../../../components/UI/table";
 import Pagination from "../../../components/UI/pagination";
 import DropdownMenuItem from "../../../components/UI/dropdown";
-import { icon } from "leaflet";
 
 const ActionMenu = ({ row }) => {
     const [anchorEl, setAnchorEl] = useState(null);

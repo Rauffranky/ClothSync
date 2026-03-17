@@ -4,14 +4,20 @@ import DashboardHeader from "./DashboardHeader";
 import { Outlet, useLocation } from "react-router-dom";
 import SideBar from "./SideBar";
 import HeaderIcon from "../components/headerIcon";
+import { useTranslation } from 'react-i18next'; // Add this import
 
 const Layout = ({ portal }) => {
+  const { i18n } = useTranslation(); // Add this hook
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarHovered, setSidebarHovered] = useState(false);
   const location = useLocation();
 
+  // Check if current language is RTL (Arabic)
+  const isRTL = i18n.language === 'ar';
+
   // Determine if we are in a portal based on prop or path
-  const isPortal = portal ||
+  const isPortal =
+    portal ||
     location.pathname.startsWith("/admin") ||
     location.pathname.startsWith("/tenant") ||
     location.pathname.startsWith("/student") ||
@@ -19,14 +25,21 @@ const Layout = ({ portal }) => {
     location.pathname.startsWith("/app") ||
     location.pathname.startsWith("/labeler");
 
-  const effectivePortal = portal ?? (
-    location.pathname.startsWith("/admin") ? "admin" :
-      location.pathname.startsWith("/tenant") ? "tenant" :
-        location.pathname.startsWith("/student") ? "student" :
-          location.pathname.startsWith("/laundries") ? "laundries" :
-            location.pathname.startsWith("/labeler") ? "labeler" :
-              location.pathname.startsWith("/app") ? "client" : "client"
-  );
+  const effectivePortal =
+    portal ??
+    (location.pathname.startsWith("/admin")
+      ? "admin"
+      : location.pathname.startsWith("/tenant")
+        ? "tenant"
+        : location.pathname.startsWith("/student")
+          ? "student"
+          : location.pathname.startsWith("/laundries")
+            ? "laundries"
+            : location.pathname.startsWith("/labeler")
+              ? "labeler"
+              : location.pathname.startsWith("/app")
+                ? "client"
+                : "client");
 
   useEffect(() => {
     if (sidebarOpen) document.body.style.overflow = "hidden";
@@ -57,7 +70,17 @@ const Layout = ({ portal }) => {
           />
         )}
 
-        <div className={`transition-all duration-300 ${isPortal ? (sidebarHovered ? "pt-16 lg:ml-68" : "pt-16 lg:ml-24") : "mt-24 lg:ml-27"} px-3 lg:px-4 py-6`}>
+        <div
+          className={[
+            "transition-all duration-300",
+            isPortal 
+              ? (sidebarHovered 
+                  ? (isRTL ? "pt-16 lg:mr-68" : "pt-16 lg:ml-68") // RTL margin
+                  : (isRTL ? "pt-16 lg:mr-24" : "pt-16 lg:ml-24")) // RTL margin
+              : "mt-24 lg:ml-27",
+            "px-3 lg:px-4 py-6",
+          ].join(" ")}
+        >
           <Outlet />
         </div>
 

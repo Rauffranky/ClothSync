@@ -734,3 +734,103 @@ html.dark .ReactFlagsSelect-module_selectOption__3qjLz:hover {
  border: none !important;
  padding: 0 !important;
 }
+
+
+
+
+
+
+
+
+/* Language Selector Styles */
+.language-select {
+  direction: ltr;
+}
+
+.language-select.rtl .react-flags-select__options {
+  direction: rtl;
+  text-align: right;
+}
+
+.language-select.rtl .react-flags-select__option {
+  direction: rtl;
+  text-align: right;
+}
+
+.language-select.rtl .react-flags-select__option-label {
+  margin-right: 8px;
+  margin-left: 0;
+}
+
+/* Fix for the dropdown positioning */
+.react-flags-select__options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: auto;
+  min-width: 150px;
+  margin-top: 4px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  padding: 4px 0;
+}
+
+/* RTL dropdown positioning */
+.language-select.rtl .react-flags-select__options {
+  left: auto;
+  right: 0;
+}
+
+/* Option hover effect */
+
+
+/* Selected option styling */
+.react-flags-select__option--selected {
+  color: #2e7d32 !important;
+}
+
+/* Button styling */
+.language-select-btn {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+
+
+/* Flag image styling */
+.react-flags-select__flag {
+  width: 20px !important;
+  height: 15px !important;
+  object-fit: cover !important;
+  border-radius: 2px !important;
+}
+
+/* RTL specific styles */
+.language-select-btn-ar .react-flags-select__flag {
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+/* Fix for the dropdown arrow */
+.react-flags-select__arrow {
+  margin-left: 4px !important;
+  font-size: 10px !important;
+  color: #6b7280 !important;
+}
+
+/* RTL arrow adjustment */
+.language-select.rtl .react-flags-select__arrow {
+  margin-left: 0 !important;
+  margin-right: 4px !important;
+}
+
+.ReactFlagsSelect-module_selectOption__3pcgW:hover, .ReactFlagsSelect-module_selectOption__3pcgW:focus {
+ 
+  color: #2e7d32 !important;
+}
