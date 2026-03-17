@@ -13,17 +13,17 @@ const Layout = ({ portal }) => {
   // Determine if we are in a portal based on prop or path
   const isPortal = portal ||
     location.pathname.startsWith("/admin") ||
-    location.pathname.startsWith("/tutor") ||
+    location.pathname.startsWith("/tenant") ||
     location.pathname.startsWith("/student") ||
-    location.pathname.startsWith("/parents") ||
+    location.pathname.startsWith("/laundries") ||
     location.pathname.startsWith("/app") ||
     location.pathname.startsWith("/labeler");
 
   const effectivePortal = portal ?? (
     location.pathname.startsWith("/admin") ? "admin" :
-      location.pathname.startsWith("/tutor") ? "tutor" :
+      location.pathname.startsWith("/tenant") ? "tenant" :
         location.pathname.startsWith("/student") ? "student" :
-          location.pathname.startsWith("/parents") ? "parents" :
+          location.pathname.startsWith("/laundries") ? "laundries" :
             location.pathname.startsWith("/labeler") ? "labeler" :
               location.pathname.startsWith("/app") ? "client" : "client"
   );

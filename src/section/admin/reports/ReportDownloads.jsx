@@ -56,8 +56,8 @@ const ReportDownloads = () => {
     ];
 
     const rows = [
-        { id: 1, name: "Parent List" },
-        { id: 2, name: "Tutor List" },
+        { id: 1, name: "Laundry List" },
+        { id: 2, name: "Tenant List" },
         { id: 3, name: "Cashflow Statement" },
         { id: 4, name: "Booking Trends" },
     ];

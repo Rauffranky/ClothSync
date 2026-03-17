@@ -10,7 +10,7 @@ function cn(...xs) {
   return xs.filter(Boolean).join(" ");
 }
 
-import RescheduleModal from "../../tutor-portal/components/RescheduleModal";
+import RescheduleModal from "../../tenant-portal/components/RescheduleModal";
 import { Calendar } from "lucide-react";
 import BookingAcceptedModal from "./BookingAcceptedModal";
 
@@ -64,7 +64,7 @@ const LessonCard = ({ details, onChangeClick, onAcceptClick }) => (
   <CardOutline border="border-none" rounded="rounded-[10px]" className="w-full max-w-[380px] my-2">
     <div className="rounded-t-xl mb-8">
       <h6 className="text-tertiary2 ">
-        If the booking request is not accepted within 72 hours, the payment will be refunded to the parent
+        If the booking request is not accepted within 72 hours, the payment will be refunded to the laundry
       </h6>
       <CountdownTimer />
     </div>
@@ -131,13 +131,13 @@ const LessonCard = ({ details, onChangeClick, onAcceptClick }) => (
 const RescheduleCard = ({ details }) => (
   <CardOutline border="border-none" rounded="rounded-[10px]" className="w-full max-w-[380px] my-2 p-6!">
     <p className="text-[#333] text-sm mb-6">
-      Your booking is <span className="font-bold">Rescheduled</span> From Tutor Side.
+      Your booking is <span className="font-bold">Rescheduled</span> From Tenant Side.
     </p>
 
     <div className="space-y-4 text-sm text-[#555]">
       <div className="flex gap-2">
-        <span className="font-medium min-w-[60px]">Tutor:</span>
-        <span>{details.tutor}</span>
+        <span className="font-medium min-w-[60px]">Tenant:</span>
+        <span>{details.tenant}</span>
       </div>
 
       <div className="flex gap-2">
@@ -203,7 +203,7 @@ export function MessageBubble({ msg }) {
 
   if (msg.type === "reschedule") {
     return (
-      <div className="w-full mb-6 flex flex-col items-start bg-transparent">
+      <div className="w-full mb-6 flex flex-col items-start bg-translaundry">
         <RescheduleCard details={msg.rescheduleDetails} />
       </div>
     );

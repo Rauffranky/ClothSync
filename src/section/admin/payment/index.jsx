@@ -18,7 +18,7 @@ const PaymentTable = () => {
             <h5 className="my-4 font-medium">Payment</h5>
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between my-4">
                 <GlobalInput
-                    placeholder="Search Tutor Name"
+                    placeholder="Search Tenant Name"
                     value={search}
                     onChange={setSearch}
                     leftIcon={<Search size={18} className="text-gray-400" />}

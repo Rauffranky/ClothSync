@@ -26,7 +26,7 @@ const SideBar = ({
   const [hovered, setHovered] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState({});
 
-  // Sync hover state to parent
+  // Sync hover state to laundry
   useEffect(() => {
     onHoverChange?.(hovered);
   }, [hovered, onHoverChange]);
@@ -104,7 +104,7 @@ const SideBar = ({
 
     const isExpanded = !!expandedMenus[id];
 
-    // ✅ Screenshot style: group open -> same bg for parent + submenu
+    // ✅ Screenshot style: group open -> same bg for laundry + submenu
     const isGroupOpen =
       hasSubmenus && (isExpanded || isSubmenuActive) && (hovered || isOpen);
 
@@ -113,10 +113,10 @@ const SideBar = ({
         key={id}
         className={[
           "mb-2",
-          isGroupOpen ? "bg-[#E9F7E9] rounded-2xl p-2" : "", // same light bg for parent+submenu
+          isGroupOpen ? "bg-[#E9F7E9] rounded-2xl p-2" : "", // same light bg for laundry+submenu
         ].join(" ")}
       >
-        {/* Parent Row */}
+        {/* Laundry Row */}
         <div
           onClick={() => {
             if (hasSubmenus) {
@@ -129,14 +129,14 @@ const SideBar = ({
           className={[
             "relative flex items-center gap-3 cursor-pointer px-4 py-3 group transition-all duration-300",
             "rounded-2xl overflow-hidden",
-            // when group open: keep parent in same green bg + text dark
+            // when group open: keep laundry in same green bg + text dark
             isGroupOpen ? "bg-[#E9F7E9] text-gray-800" : "",
             // normal states
             !isGroupOpen && isActive ? "text-white" : "",
             !isGroupOpen && !isActive ? "text-gray-600 hover:text-white" : "",
           ].join(" ")}
         >
-          {/* Gradient only when parent is ACTIVE and NOT in group-open mode (because group-open uses light bg) */}
+          {/* Gradient only when laundry is ACTIVE and NOT in group-open mode (because group-open uses light bg) */}
           {!isGroupOpen && (
             <div
               className={[

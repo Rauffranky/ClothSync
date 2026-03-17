@@ -4,16 +4,16 @@ import CardOutline from "../../../components/UI/card/CardOutline";
 const steps = [
   {
     id: 1,
-    title: "Browse Tutors",
+    title: "Browse Tenants",
     description:
-      "Search for tutors based on your subject, level, and preferences.",
+      "Search for tenants based on your subject, level, and preferences.",
     image: "/landing-images/how-it work1.svg",
   },
   {
     id: 2,
-    title: "Message Tutors",
+    title: "Message Tenants",
     description:
-      "Chat with potential tutors to ensure they are the right fit for your needs.",
+      "Chat with potential tenants to ensure they are the right fit for your needs.",
     image: "/landing-images/how-it work2.svg",
   },
   {
@@ -31,7 +31,7 @@ const HowItWorks = () => {
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h1 className="font-bold mb-4">How It Works</h1>
         <h4 className="t text-[#57606A]">
-          Finding the perfect tutor is simple. Browse, connect, and book lessons
+          Finding the perfect tenant is simple. Browse, connect, and book lessons
           in just a few steps.
         </h4>
       </div>

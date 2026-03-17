@@ -12,17 +12,15 @@ import {
 const EmailConfirmedSection = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const mode = searchParams.get("mode"); // '2fa', 'forgot-password' or null
+  const mode = searchParams.get("mode"); // 'forgot-password', 'laundry-forgot', or null
 
   return (
     <>
-      <div className="flex flex-col items-center text-center w-full">
+      <div className="flex flex-col items-center text-center w-full mt-6">
         <h2 className="mb-3 font-medium! text-center">
-          {mode === "2fa"
-            ? "2- Factor Authentication"
-            : mode === "forgot-password"
-              ? "Verification Successful"
-              : "Email Address Confirmed"}
+          {mode === "forgot-password" || mode === "laundry-forgot"
+            ? "Verification Successful"
+            : "Email Address Confirmed"}
         </h2>
 
         <div
@@ -39,28 +37,24 @@ const EmailConfirmedSection = () => {
         </h5>
 
         <h6 className="mb-8">
-          {mode === "2fa"
-            ? "Your 6-digit code has been successfully verified, and Two-Factor Authentication (2FA) is now active on your account. Now, let's create your listing"
-            : mode === "forgot-password"
-              ? "Your identity has been successfully verified. You can now reset your password."
-              : "Thank you for confirming your email address. Your account has now been successfully registered. To activate and login to your account, enable Two-Factor Authentication (2FA) with your mobile phone. This additional layer of security helps safeguard your information."}
+          {mode === "forgot-password" || mode === "laundry-forgot"
+            ? "Your identity has been successfully verified. You can now reset your password."
+            : "Thank you for confirming your email address. Your account has now been successfully registered."}
         </h6>
 
-        <div className="w-full max-w-[200px]">
+        <div className="w-full max-w-50">
           <Button
-            label={mode === "2fa" ? "Continue" : "Continue"}
+            label="Continue"
             variant="primary"
             fullWidth
             className="py-3! text-white"
             onClick={() => {
-              if (mode === "2fa") {
-                console.log("Continue");
-                // Navigate to profile setup
-                navigate("/auth/create-tutor-profile");
+              if (mode === "laundry-forgot") {
+                navigate("/auth/laundry-login");
               } else if (mode === "forgot-password") {
-                navigate("/auth/login"); // Or reset password page if it existed
+                navigate("/auth/tenant-login");
               } else {
-                navigate("/auth/2fa");
+                navigate("/auth/laundry-login");
               }
             }}
           />

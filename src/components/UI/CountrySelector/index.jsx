@@ -14,7 +14,7 @@ const CountrySelector = ({
   placeholder = "",
   className = "",
   disabled = false,
-  bgColor = "bg-transparent", // ✅ transparent
+  bgColor = "bg-translaundry", // ✅ translaundry
   textColor = "text-black",
   borderColor = "border-none",
   width = "w-full",
@@ -144,7 +144,7 @@ const CountrySelector = ({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className={`w-full pl-7 pr-8 py-2 bg-transparent border border-border rounded-md text-sm ${textColor} placeholder:text-black outline-none`}
+                className={`w-full pl-7 pr-8 py-2 bg-translaundry border border-border rounded-md text-sm ${textColor} placeholder:text-black outline-none`}
                 autoFocus
               />
               {searchQuery && (

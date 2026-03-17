@@ -45,11 +45,11 @@ const PhoneNumberField = ({
                     value={value}
                     onChange={onChange}
                     placeholder={placeholder}
-                    inputClassName="!bg-transparent !border-none !outline-none !shadow-none !text-[14px] !text-[#1E1E1E] w-full !h-10"
+                    inputClassName="!bg-translaundry !border-none !outline-none !shadow-none !text-[14px] !text-[#1E1E1E] w-full !h-10"
                     className="w-full"
                     countrySelectorStyleProps={{
                         buttonClassName:
-                            "!bg-transparent !border-none !text-[#1E1E1E] !focus:outline-none !px-2",
+                            "!bg-translaundry !border-none !text-[#1E1E1E] !focus:outline-none !px-2",
                     }}
                 />
             </div>

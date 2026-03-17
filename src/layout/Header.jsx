@@ -10,7 +10,7 @@ import { NAV_MENU } from "./ConfigNav";
 import useThemeMode from "../hooks/useThemeMode";
 
 const Header = () => {
-  const [country, setCountry] = useState("US");
+  const [country, setCountry] = useState("en");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDarkMode, toggleTheme } = useThemeMode();
 
@@ -21,44 +21,45 @@ const Header = () => {
         {/* TOP GREEN BAR */}
         <CardOutline
           border="border-none"
-          className="rounded-none bg-tertiary! shadow-sm"
+          className="rounded-none bg-white dark:bg-[#23272f] shadow-sm text-[#0F1724] dark:text-gray-100"
         >
           <div className="h-7.5 px-4 md:px-8 flex items-center justify-between">
-            <div className="flex items-center gap-3 justify-between w-full ">
+            {/* <div className="flex items-center gap-3 justify-between w-full ">
               <Logo height={56} />
               <button
                 type="button"
                 aria-label="Open sidebar"
                 onClick={() => setIsMenuOpen(true)}
-                className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg border border-[#0F1724]/20 text-[#0F1724] hover:bg-black/5"
+                className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg border border-[#0F1724]/20 text-[#0F1724] dark:border-gray-700 dark:text-gray-100 hover:bg-black/5 dark:hover:bg-gray-800"
               >
                 <Logs size={20} />
               </button>
-            </div>
+            </div> */}
 
             <div className="hidden lg:flex items-center gap-3 ">
               <button
                 type="button"
                 onClick={toggleTheme}
                 aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-                className={`p-2 rounded-lg border transition-colors ${
+                className={[
+                  "p-2 rounded-lg border",
                   isDarkMode
                     ? "border-gray-700 text-yellow-400 hover:bg-gray-800"
-                    : "border-gray-200 text-gray-700 hover:bg-gray-100"
-                }`}
+                    : "border-gray-200 text-gray-700 hover:bg-gray-100",
+                ].join(" ")}
               >
                 {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
               </button>
 
               {/* Language */}
-              <div className=" hidden lg:block ">
+              <div className="hidden lg:block ">
                 <CountrySelector
                   value={country}
                   onChange={(code) => setCountry(code)}
                   width="w-full"
                   height="h-[33px]"
-                  bgColor="bg-transparent"
-                  textColor="text-[#0F1724] "
+                  bgColor="dark:bg-[#23272f]"
+                  textColor="text-[#0F1724] dark:text-gray-100"
                   fontSize="text-[14px]"
                 />
               </div>
@@ -84,23 +85,16 @@ const Header = () => {
         {/* BOTTOM WHITE BAR */}
         <CardOutline
           border="border-none"
-          className="rounded-none hidden lg:block "
-          style={{
-            background: "rgba(255, 255, 255, 0.70)",
-            boxShadow:
-              "0 2px 1px 0 rgba(0, 0, 0, 0.05), inset 0 -3px 8px 0 rgba(0, 0, 0, 0.15)",
-            backdropFilter: "blur(5px)",
-            WebkitBackdropFilter: "blur(5px)",
-          }}
+          className="rounded-none hidden lg:block bg-white dark:bg-[#23272f]"
         >
           <div className="h-7.5 px-4 md:px-8 flex items-center justify-center">
-            <ul className="hidden lg:flex items-center gap-25 text-[13px] font-semibold text-secondary ">
+            <ul className="hidden lg:flex items-center gap-25 text-[13px] font-semibold text-secondary dark:text-gray-200">
               {NAV_MENU.map((item) => (
                 <li key={item.id}>
                   <NavLink
                     to={item.href}
                     className={({ isActive }) =>
-                      `transition-colors hover:text-primary ${isActive ? "text-primary shadow-[0_2px_0_0_currentColor]" : ""}`
+                      `hover:text-primary dark:hover:text-yellow-400 ${isActive ? "text-primary dark:text-yellow-400" : ""}`
                     }
                   >
                     {item.name}
@@ -143,7 +137,7 @@ const Header = () => {
                 onChange={(code) => setCountry(code)}
                 width="w-full"
                 height="h-[36px]"
-                bgColor="bg-transparent"
+                bgColor="bg-translaundry"
                 textColor="text-[#0F1724]"
                 fontSize="text-[14px]"
               />

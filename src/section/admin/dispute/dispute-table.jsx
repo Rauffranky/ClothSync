@@ -32,16 +32,16 @@ const ActionMenu = ({ row }) => {
                         onClick: () => navigate(`/admin/disputes/${row.id}`, { state: row }),
                     },
                     {
-                        id: "msg_parent",
-                        label: "Parent",
+                        id: "msg_laundry",
+                        label: "Laundry",
                         icon: <Mail size={18} />,
-                        onClick: () => console.log("Message Parent", row.parent),
+                        onClick: () => console.log("Message Laundry", row.laundry),
                     },
                     {
-                        id: "msg_tutor",
-                        label: "Tutor",
+                        id: "msg_tenant",
+                        label: "Tenant",
                         icon: <Mail size={18} />,
-                        onClick: () => console.log("Message Tutor", row.tutor),
+                        onClick: () => console.log("Message Tenant", row.tenant),
                     },
                     {
                         id: "resolve",
@@ -59,8 +59,8 @@ const DisputeTable = () => {
     const columns = [
         { header: "Date", key: "date", align: "left", sorting: true },
         { header: "Case", key: "case", align: "left", sorting: true },
-        { header: "Tutor", key: "tutor", align: "left" },
-        { header: "Parent", key: "parent", align: "left" },
+        { header: "Tenant", key: "tenant", align: "left" },
+        { header: "Laundry", key: "laundry", align: "left" },
         {
             header: "Status",
             key: "status",
@@ -69,15 +69,15 @@ const DisputeTable = () => {
     ];
 
     const rows = [
-        { id: 1, date: "10/02/2026", case: "#00012", tutor: "A James", parent: "O Stone", status: "Requested" },
-        { id: 2, date: "10/02/2026", case: "#00012", tutor: "A James", parent: "O Stone", status: "Requested" },
-        { id: 3, date: "10/02/2026", case: "#00012", tutor: "A James", parent: "O Stone", status: "Requested" },
-        { id: 4, date: "10/02/2026", case: "#00012", tutor: "A James", parent: "O Stone", status: "Accepted" },
-        { id: 5, date: "10/02/2026", case: "#00012", tutor: "A James", parent: "O Stone", status: "Accepted" },
-        { id: 6, date: "10/02/2026", case: "#00012", tutor: "A James", parent: "O Stone", status: "Rejected" },
-        { id: 7, date: "10/02/2026", case: "#00012", tutor: "A James", parent: "O Stone", status: "Requested" },
-        { id: 8, date: "10/02/2026", case: "#00012", tutor: "A James", parent: "O Stone", status: "Requested" },
-        { id: 9, date: "10/02/2026", case: "#00012", tutor: "A James", parent: "O Stone", status: "Requested" },
+        { id: 1, date: "10/02/2026", case: "#00012", tenant: "A James", laundry: "O Stone", status: "Requested" },
+        { id: 2, date: "10/02/2026", case: "#00012", tenant: "A James", laundry: "O Stone", status: "Requested" },
+        { id: 3, date: "10/02/2026", case: "#00012", tenant: "A James", laundry: "O Stone", status: "Requested" },
+        { id: 4, date: "10/02/2026", case: "#00012", tenant: "A James", laundry: "O Stone", status: "Accepted" },
+        { id: 5, date: "10/02/2026", case: "#00012", tenant: "A James", laundry: "O Stone", status: "Accepted" },
+        { id: 6, date: "10/02/2026", case: "#00012", tenant: "A James", laundry: "O Stone", status: "Rejected" },
+        { id: 7, date: "10/02/2026", case: "#00012", tenant: "A James", laundry: "O Stone", status: "Requested" },
+        { id: 8, date: "10/02/2026", case: "#00012", tenant: "A James", laundry: "O Stone", status: "Requested" },
+        { id: 9, date: "10/02/2026", case: "#00012", tenant: "A James", laundry: "O Stone", status: "Requested" },
     ];
 
     return (

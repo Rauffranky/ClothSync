@@ -36,11 +36,11 @@ const NavigationButton = ({
             ? `${bgColorDisabled} ${textColorDisabled} cursor-not-allowed shadow-none`
             : `${bgColor} ${textColor} hover:${hoverColor} cursor-pointer`,
         outline: disabled
-            ? `bg-transparent border-2 border-gray-200 ${textColorDisabled} cursor-not-allowed`
-            : `bg-transparent border-2 border-gray-300 ${textColor} hover:border-[#4CAF50] hover:${hoverColor} cursor-pointer`,
+            ? `bg-translaundry border-2 border-gray-200 ${textColorDisabled} cursor-not-allowed`
+            : `bg-translaundry border-2 border-gray-300 ${textColor} hover:border-[#4CAF50] hover:${hoverColor} cursor-pointer`,
         minimal: disabled
-            ? `bg-transparent ${textColorDisabled} cursor-not-allowed`
-            : `bg-transparent ${textColor} hover:${hoverColor} cursor-pointer`
+            ? `bg-translaundry ${textColorDisabled} cursor-not-allowed`
+            : `bg-translaundry ${textColor} hover:${hoverColor} cursor-pointer`
     };
 
     // Position classes

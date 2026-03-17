@@ -67,7 +67,7 @@ const StudentTable = () => {
     const columns = [
         { header: "Lesson ID", key: "lesson", align: "left", sorting: true },
         { header: "Student", key: "student", align: "left", sorting: true },
-        { header: "Tutor", key: "tutor", align: "left" },
+        { header: "Tenant", key: "tenant", align: "left" },
         { header: "Subject", key: "subject", align: "left" },
         { header: "Level", key: "level", align: "left" },
         {
@@ -79,15 +79,15 @@ const StudentTable = () => {
     ];
 
     const rows = [
-        { id: 1, lesson: "#10001", student: "Alex Jones", tutor: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-01", lessonTime: "10:00 AM" },
-        { id: 2, lesson: "#10002", student: "Alex Jones", tutor: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-02", lessonTime: "10:00 AM" },
-        { id: 3, lesson: "#10003", student: "Alex Jones", tutor: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-03", lessonTime: "10:00 AM" },
-        { id: 4, lesson: "#10004", student: "Alex Jones", tutor: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-04", lessonTime: "10:00 AM" },
-        { id: 5, lesson: "#10005", student: "Alex Jones", tutor: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-05", lessonTime: "10:00 AM" },
-        { id: 6, lesson: "#10006", student: "Alex Jones", tutor: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-06", lessonTime: "10:00 AM" },
-        { id: 7, lesson: "#10007", student: "Alex Jones", tutor: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-07", lessonTime: "10:00 AM" },
-        { id: 8, lesson: "#10008", student: "Alex Jones", tutor: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-08", lessonTime: "10:00 AM" },
-        { id: 9, lesson: "#10009", student: "Alex Jones", tutor: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-09", lessonTime: "10:00 AM" },
+        { id: 1, lesson: "#10001", student: "Alex Jones", tenant: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-01", lessonTime: "10:00 AM" },
+        { id: 2, lesson: "#10002", student: "Alex Jones", tenant: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-02", lessonTime: "10:00 AM" },
+        { id: 3, lesson: "#10003", student: "Alex Jones", tenant: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-03", lessonTime: "10:00 AM" },
+        { id: 4, lesson: "#10004", student: "Alex Jones", tenant: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-04", lessonTime: "10:00 AM" },
+        { id: 5, lesson: "#10005", student: "Alex Jones", tenant: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-05", lessonTime: "10:00 AM" },
+        { id: 6, lesson: "#10006", student: "Alex Jones", tenant: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-06", lessonTime: "10:00 AM" },
+        { id: 7, lesson: "#10007", student: "Alex Jones", tenant: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-07", lessonTime: "10:00 AM" },
+        { id: 8, lesson: "#10008", student: "Alex Jones", tenant: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-08", lessonTime: "10:00 AM" },
+        { id: 9, lesson: "#10009", student: "Alex Jones", tenant: "Alex Jones", subject: "Math", level: "Beginner", lessonDate: "2023-01-09", lessonTime: "10:00 AM" },
     ];
 
     return (

@@ -9,7 +9,7 @@ const IntroductionVideo = () => {
         <title>Introduction Video | TuitionFarm</title>
         <meta
           name="description"
-          content="Upload an introduction video to showcase your tutoring services."
+          content="Upload an introduction video to showcase your tenanting services."
         />
       </Helmet>
       <IntroductionVideoSection />

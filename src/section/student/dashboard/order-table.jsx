@@ -55,7 +55,7 @@ const OrderTable = ({ onViewDetail }) => {
         { header: "Order ID", key: "orderId", align: "left", sorting: true },
         { header: "Time", key: "time", align: "left" },
         { header: "Student", key: "student", align: "left", sorting: true },
-        { header: "Tutor", key: "tutor", align: "left" },
+        { header: "Tenant", key: "tenant", align: "left" },
         { header: "Subject", key: "subject", align: "left" },
         { header: "Level", key: "level", align: "left" },
         { header: "Lesson Booked", key: "lessonBooked", align: "center" },
@@ -64,13 +64,13 @@ const OrderTable = ({ onViewDetail }) => {
     ];
 
     const rows = [
-        { id: 1, orderId: "#1233", time: "15:00", student: "Estelle", tutor: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
-        { id: 2, orderId: "#1233", time: "15:00", student: "Estelle", tutor: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
-        { id: 3, orderId: "#1233", time: "15:00", student: "Estelle", tutor: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
-        { id: 4, orderId: "#1233", time: "15:00", student: "Estelle", tutor: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
-        { id: 5, orderId: "#1233", time: "15:00", student: "Estelle", tutor: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
-        { id: 6, orderId: "#1233", time: "15:00", student: "Estelle", tutor: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
-        { id: 7, orderId: "#1233", time: "15:00", student: "Estelle", tutor: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
+        { id: 1, orderId: "#1233", time: "15:00", student: "Estelle", tenant: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
+        { id: 2, orderId: "#1233", time: "15:00", student: "Estelle", tenant: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
+        { id: 3, orderId: "#1233", time: "15:00", student: "Estelle", tenant: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
+        { id: 4, orderId: "#1233", time: "15:00", student: "Estelle", tenant: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
+        { id: 5, orderId: "#1233", time: "15:00", student: "Estelle", tenant: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
+        { id: 6, orderId: "#1233", time: "15:00", student: "Estelle", tenant: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
+        { id: 7, orderId: "#1233", time: "15:00", student: "Estelle", tenant: "James", subject: "Math", level: "GCSE", lessonBooked: "08", lessonRemaining: "07", nextLesson: "02/09/2025" },
     ];
 
     return (

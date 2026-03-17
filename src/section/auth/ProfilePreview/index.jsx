@@ -2,7 +2,7 @@ import { Delete, Ellipsis, Eye, Mail, Pencil, Trash2 } from "lucide-react";
 import Button from "../../../components/UI/button";
 import CardOutline from "../../../components/UI/card/CardOutline";
 import DataTable from "../../../components/UI/table";
-import ProfileHeader from "../../landing-page/tutor-detail/ProfileHeader";
+import ProfileHeader from "../../landing-page/tenant-detail/ProfileHeader";
 import { useNavigate } from "react-router-dom";
 import DropdownMenuItem from "../../../components/UI/dropdown";
 import { useState } from "react";
@@ -13,7 +13,7 @@ const ProfilePreview = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onClose = () => setIsOpen(false);
-  const tutor = {
+  const tenant = {
     name: "John Doe",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
@@ -68,7 +68,7 @@ const ProfilePreview = () => {
                 onClick: ()=> navigate("/auth/edit-profile")
               },
               {
-                id: "msg_parent",
+                id: "msg_laundry",
                 label: "Delete",
                 icon: <Trash2 size={18} />,
                 onClick: () => {
@@ -92,7 +92,7 @@ const ProfilePreview = () => {
   return (
     <div className=" ">
       <h2>Profile Preview</h2>
-      <ProfileHeader tutor={tutor} />
+      <ProfileHeader tenant={tenant} />
       <div className="space-y-6 px-8 ">
         <h5 className="font-semibold text-left ">Rates</h5>
         <CardOutline
@@ -112,7 +112,7 @@ const ProfilePreview = () => {
         <div className=" flex justify-end space-x-4">
           <Button
             variant="outline"
-            onClick={() => navigate("/auth/register/tutor")}
+            onClick={() => navigate("/auth/register/tenant")}
             className=" px-10! "
             label="Edit"
           />

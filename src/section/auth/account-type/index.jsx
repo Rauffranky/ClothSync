@@ -5,7 +5,7 @@ import Button from "../../../components/UI/button";
 import { GraduationCap, Users, CircleChevronLeft, CircleChevronRight } from "lucide-react";
 
 const AccountTypeSelectionSection = () => {
-    const [selectedType, setSelectedType] = useState(sessionStorage.getItem('selectedType') || 'tutor');
+    const [selectedType, setSelectedType] = useState(sessionStorage.getItem('selectedType') || 'tenant');
 
     useEffect(() => {
         sessionStorage.setItem('selectedType', selectedType);
@@ -13,22 +13,20 @@ const AccountTypeSelectionSection = () => {
     const navigate = useNavigate();
 
     const handleContinue = () => {
-        if (selectedType === 'tutor') {
-            navigate('/auth/register/tutor');
+        if (selectedType === 'tenant') {
+            navigate('/auth/register/tenant');
         } else {
-            navigate('/auth/register/parent');
+            navigate('/auth/register/laundry');
         }
     };
 
     return (
         <>
-            <h2 className=" font-medium! mb-4">Select Account Type</h2>
-
             <CardOutline border="border border-border-2" shadow="shadow-inner-full" bg="bg-bg-light" rounded="rounded-[30px]" className=" w-full flex flex-wrap gap-3 md:gap-6 mb-2">
                 <CardOutline
-                    onClick={() => setSelectedType('tutor')}
-                    border={`border-2 ${selectedType === 'tutor' ? 'border-border-3' : 'border-transparent hover:border-border-2'}`}
-                    shadow={selectedType === 'tutor' ? 'shadow-sm' : 'shadow-none'}
+                    onClick={() => setSelectedType('tenant')}
+                    border={`border-2 ${selectedType === 'tenant' ? 'border-border-3' : 'border-translaundry hover:border-border-2'}`}
+                    shadow={selectedType === 'tenant' ? 'shadow-sm' : 'shadow-none'}
                     rounded="rounded-[15px]"
                     padding="p-6"
                     className="flex-1 cursor-pointer transition-all duration-200 flex flex-col items-center justify-center gap-3"
@@ -42,13 +40,13 @@ const AccountTypeSelectionSection = () => {
                         className={`w-12 h-12 border-2 border-border-3 rounded-full flex items-center justify-center`}>
                         <GraduationCap className="text-border-3" />
                     </div>
-                    <h5>Continue As Tutor</h5>
+                    <h5>Continue As Tenant</h5>
                 </CardOutline>
 
                 <CardOutline
-                    onClick={() => setSelectedType('parent')}
-                    border={`border-2 ${selectedType === 'parent' ? 'border-border-3' : 'border-transparent hover:border-border-2'}`}
-                    shadow={selectedType === 'parent' ? 'shadow-sm' : 'shadow-none'}
+                    onClick={() => setSelectedType('laundry')}
+                    border={`border-2 ${selectedType === 'laundry' ? 'border-border-3' : 'border-translaundry hover:border-border-2'}`}
+                    shadow={selectedType === 'laundry' ? 'shadow-sm' : 'shadow-none'}
                     rounded="rounded-xl"
                     padding="p-6"
                     className="flex-1 cursor-pointer transition-all duration-200 flex flex-col items-center justify-center gap-3"
@@ -62,7 +60,7 @@ const AccountTypeSelectionSection = () => {
                         className={`w-12 h-12 border-2 border-border-3 rounded-full flex items-center justify-center`}>
                         <Users className="text-border-3" />
                     </div>
-                    <h5>Continue As Parent</h5>
+                    <h5>Continue As Laundry</h5>
                 </CardOutline>
             </CardOutline>
 

@@ -10,7 +10,7 @@ const UploadDocuments = () => {
         <title>Upload Documents | TuitionFarm</title>
         <meta
           name="description"
-          content="Upload an introduction video to showcase your tutoring services."
+          content="Upload an introduction video to showcase your tenanting services."
         />
       </Helmet>
       <UploadDocumentsSection />

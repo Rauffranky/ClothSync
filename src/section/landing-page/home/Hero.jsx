@@ -5,7 +5,7 @@ import Button from "../../../components/UI/button";
 import { Search } from "lucide-react";
 import ImageSlider from "../../../components/UI/ImageSlider";
 import CardOutline from "../../../components/UI/card/CardOutline";
-import TutorSearchFilter from "../../../components/UI/TutorSearchFilter";
+import TenantSearchFilter from "../../../components/UI/TenantSearchFilter";
 
 // Mock options for the selector
 const levelOptions = [
@@ -50,10 +50,10 @@ const Hero = () => {
           <div>
             <div>
               <h1 className="font-semibold ">
-                Find <span className="text-primary">Verified Tutors</span>
+                Find <span className="text-primary">Verified Tenants</span>
               </h1>
               <h5 className=" text-gray-600 ">
-                Hire the best tutors for private tuition, and help secure your
+                Hire the best tenants for private tuition, and help secure your
                 child's future.
               </h5>
             </div>
@@ -66,7 +66,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <TutorSearchFilter
+          <TenantSearchFilter
             level={level}
             setLevel={setLevel}
             subject={subject}

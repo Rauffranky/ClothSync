@@ -3,7 +3,7 @@ import AdminDashboardStats from "./DashboardStats";
 import DashboardCharts from "./DashboardCharts";
 import RevenueChart from "./RevenueChart";
 import TransactionsTable from "./TransactionsTable";
-import TutorListings from "./TutorListings";
+import TenantListings from "./TenantListings";
 
 const AdminDashboard = () => {
     return (
@@ -19,8 +19,8 @@ const AdminDashboard = () => {
             {/* Revenue Chart Section */}
             <RevenueChart />
 
-            {/* Tutor Listings Section */}
-            <TutorListings />
+            {/* Tenant Listings Section */}
+            <TenantListings />
 
             {/* Transactions Table */}
             <TransactionsTable />

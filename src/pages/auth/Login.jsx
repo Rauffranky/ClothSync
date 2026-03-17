@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Helmet } from "@dr.pogodin/react-helmet";
-import TutorLoginSection from "../../section/auth/login/tutor-login.jsx";
+import TenantLoginSection from "../../section/auth/login/tenant-login.jsx";
 
 const Login = () => {
     return (
@@ -10,7 +10,7 @@ const Login = () => {
                 <title>Login | TuitionFarm</title>
                 <meta name="description" content="Login to your account." />
             </Helmet>
-            <TutorLoginSection />
+            <TenantLoginSection />
         </>
     );
 };

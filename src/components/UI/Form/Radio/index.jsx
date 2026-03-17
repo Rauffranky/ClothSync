@@ -37,7 +37,7 @@ const Radio = ({
         <div
           className={`
             w-3 h-3 rounded-full transition-all duration-200
-            ${checked ? "bg-[linear-gradient(94deg,#2E7D32_0.25%,#66BB6A_88.23%)]" : "bg-transparent"}
+            ${checked ? "bg-[linear-gradient(94deg,#2E7D32_0.25%,#66BB6A_88.23%)]" : "bg-translaundry"}
           `}
         />
       </div>

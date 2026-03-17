@@ -27,7 +27,7 @@ const IndexDispute = () => {
             </div>
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between my-4">
                 <GlobalInput
-                    placeholder="Search Parent Name"
+                    placeholder="Search Laundry Name"
                     value={search}
                     onChange={setSearch}
                     leftIcon={<Search size={18} className="text-gray-400" />}

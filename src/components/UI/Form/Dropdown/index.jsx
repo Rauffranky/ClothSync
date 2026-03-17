@@ -187,7 +187,7 @@ export function SmartSelect({
       {/* Combobox/trigger */}
       <button
         type="button"
-        className={`w-full text-left ${rounded} border  ${backgroundColor} backdrop-blur-sm text-[12px]  px-3 py-2 focus:outline-none   disabled:opacity-60 disabled:cursor-not-allowed ${
+        className={`w-full text-left ${rounded} border border-[#CFE3D1]! dark:border-[#5f6672]!  ${backgroundColor} backdrop-blur-sm text-[12px]  px-3 py-2 focus:outline-none   disabled:opacity-60 disabled:cursor-not-allowed ${
           open ? "border-primary " : "border-black/50"
         } ${triggerClassName}`}
         aria-haspopup="listbox"
@@ -239,7 +239,7 @@ export function SmartSelect({
       {/* Dropdown */}
       {open && (
         <div
-          className={`absolute z-50 mt-1 w-full ${rounded} border border-slate-200  bg-white shadow-xl overflow-hidden`}
+          className={`absolute z-50 mt-1 w-full ${rounded} border border-slate-200 dark:border-[#5f6672]  bg-white dark:bg-[#2a313d] shadow-xl overflow-hidden`}
           role="listbox"
           aria-activedescendant={
             activeIndex >= 0 ? `smart-opt-${activeIndex}` : undefined
@@ -303,7 +303,7 @@ export function SmartSelect({
                       className={`ml-auto h-4 w-4 rounded-full ${
                         isSelected
                           ? "bg-primary"
-                          : "bg-transparent border-2 border-primary"
+                          : "bg-translaundry border-2 border-primary"
                       }`}
                     />
                   )}
@@ -312,7 +312,7 @@ export function SmartSelect({
                       className={`ml-auto h-2 w-2 rounded-full ${
                         isSelected
                           ? "bg-primary"
-                          : "bg-transparent border border-primary"
+                          : "bg-translaundry border border-primary"
                       }`}
                     />
                   )}

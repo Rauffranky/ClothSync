@@ -50,7 +50,7 @@ const ReadyToGrow = () => {
         <div className="flex items-center justify-center gap-1">
           <Button
             variant="white"
-            label="Register as Tutor"
+            label="Register as Tenant"
             className="mt-6 px-8! font-bold! "
           />
         </div>

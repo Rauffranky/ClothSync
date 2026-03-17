@@ -1,4 +1,4 @@
-import Reviews from "../../landing-page/tutor-detail/Reviews";
+import Reviews from "../../landing-page/tenant-detail/Reviews";
 
 const AdminReviewpage = () => {
     return (

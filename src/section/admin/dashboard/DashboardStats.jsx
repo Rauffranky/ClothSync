@@ -40,31 +40,31 @@ const AdminDashboardStats = () => {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Tutors Card */}
+            {/* Tenants Card */}
             <div
-                onClick={() => navigate("/admin/tutors")}
+                onClick={() => navigate("/admin/tenants")}
                 className="bg-white rounded-[16px] shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-between gap-6 min-h-[180px] cursor-pointer hover:shadow-md transition-shadow"
             >
-                <h3 className="text-[#333] font-medium text-[16px]">Tutors</h3>
+                <h3 className="text-[#333] font-medium text-[16px]">Tenants</h3>
 
                 <AvatarStack count="11+" />
 
                 <button className="text-[#4CAF50] text-[14px] underline underline-offset-4 hover:text-[#388E3C] transition-colors">
-                    View All Tutors
+                    View All Tenants
                 </button>
             </div>
 
-            {/* Parents Card */}
+            {/* Laundries Card */}
             <div
-                onClick={() => navigate("/admin/parents")}
+                onClick={() => navigate("/admin/laundries")}
                 className="bg-white rounded-[16px] shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-between gap-6 min-h-[180px] cursor-pointer hover:shadow-md transition-shadow"
             >
-                <h3 className="text-[#333] font-medium text-[16px]">Parents</h3>
+                <h3 className="text-[#333] font-medium text-[16px]">Laundries</h3>
 
                 <AvatarStack count="11+" />
 
                 <button className="text-[#4CAF50] text-[14px] underline underline-offset-4 hover:text-[#388E3C] transition-colors">
-                    View All Parents
+                    View All Laundries
                 </button>
             </div>
 

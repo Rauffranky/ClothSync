@@ -35,7 +35,7 @@ const CategorySlider = () => {
       border="border-none"
       shadow="shadow-[0_51.785px_51.785px_0_rgba(81,77,89,0.10),0_12.682px_28.534px_0_rgba(81,77,89,0.10)]"
       rounded="rounded-none"
-      bg="bg-transparent"
+      bg="bg-translaundry"
       className="py-1 px-12! overflow-hidden relative"
       style={{
         background:

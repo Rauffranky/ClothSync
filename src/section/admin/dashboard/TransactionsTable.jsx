@@ -48,7 +48,7 @@ const ActionMenu = ({ row }) => {
 const TransactionsTable = () => {
     const columns = [
         { header: "Order ID", key: "order", align: "left", sorting: true },
-        { header: "Tutor", key: "tutor", align: "left" },
+        { header: "Tenant", key: "tenant", align: "left" },
         { header: "Cashflow", key: "cashflow", align: "left" },
         { header: "Amount", key: "amount", align: "left" },
         {
@@ -59,15 +59,15 @@ const TransactionsTable = () => {
     ];
 
     const rows = [
-        { id: 1, order: "#10001", tutor: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Paid" },
-        { id: 2, order: "#10002", tutor: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Pending" },
-        { id: 3, order: "#10003", tutor: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Paid" },
-        { id: 4, order: "#10004", tutor: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Pending" },
-        { id: 5, order: "#10005", tutor: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Paid" },
-        { id: 6, order: "#10006", tutor: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Pending" },
-        { id: 7, order: "#10007", tutor: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Paid" },
-        { id: 8, order: "#10008", tutor: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Pending" },
-        { id: 9, order: "#10009", tutor: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Paid" },
+        { id: 1, order: "#10001", tenant: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Paid" },
+        { id: 2, order: "#10002", tenant: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Pending" },
+        { id: 3, order: "#10003", tenant: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Paid" },
+        { id: 4, order: "#10004", tenant: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Pending" },
+        { id: 5, order: "#10005", tenant: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Paid" },
+        { id: 6, order: "#10006", tenant: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Pending" },
+        { id: 7, order: "#10007", tenant: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Paid" },
+        { id: 8, order: "#10008", tenant: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Pending" },
+        { id: 9, order: "#10009", tenant: "Alex Jones", cashflow: "Payout", amount: "£100", status: "Paid" },
     ];
 
     return (

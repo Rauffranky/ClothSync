@@ -5,16 +5,16 @@ import { Mail, FileText, Calendar, Clock, BookOpen, Smartphone, PcCase, Upload, 
 import Button from '../../../../components/UI/button';
 import StatusChipNew from '../../../../components/UI/StatusChipNew'; // Use Global Status Component
 import { DragDropUpload } from '../../../../components/UI/fileUpload';
-import NotesModal from '../../../tutor-portal/bookings/NotesModal';
-import SuspendModal from '../../../landing-page/tutor-detail/modals/SuspendModal';
-import ApproveModal from '../../../landing-page/tutor-detail/modals/ApproveModal';
+import NotesModal from '../../../tenant-portal/bookings/NotesModal';
+import SuspendModal from '../../../landing-page/tenant-detail/modals/SuspendModal';
+import ApproveModal from '../../../landing-page/tenant-detail/modals/ApproveModal';
 import SocialIcons from '../../../../components/UI/SocialIcons';
 
 const mockData = {
     caseId: "000012",
     amount: "£100",
-    parentName: "Mr. Alex Jones",
-    tutorName: "Mr. Alex Jones",
+    laundryName: "Mr. Alex Jones",
+    tenantName: "Mr. Alex Jones",
     lessons: ["#1122", "#911"],
     pastLessons: [
         { id: "#1122", date: "29/09/2025", time: "15:00", subject: "Math" },
@@ -112,18 +112,18 @@ const DisputeDetail = () => {
                 ))}
             </div>
 
-            {/* Row 2: Parents & Tutor */}
+            {/* Row 2: Laundries & Tenant */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {[
-                    { icon: <Users size={20} className="mr-2" />, label: "Parents", value: data.parentName, hasAction: true },
-                    { icon: <GraduationCap size={20} className="mr-2" />, label: "Tutor", value: data.tutorName, hasAction: true },
+                    { icon: <Users size={20} className="mr-2" />, label: "Laundries", value: data.laundryName, hasAction: true },
+                    { icon: <GraduationCap size={20} className="mr-2" />, label: "Tenant", value: data.tenantName, hasAction: true },
                 ].map((item, index) => (
                     <DetailRow key={index} className={item.hasAction ? "justify-between" : ""}>
                         {/* Wrapper for left side content to separate from potential action button */}
                         <div className="flex items-center gap-2"> {/* Normalized inner wrapper */}
                             {item.action ? (
-                                // Logic for Parents/Tutor structure if strict adherence to nested divs needed
-                                // Current parents structure: div(gap-4) > [div(gap-2) > icon, label], value
+                                // Logic for Laundries/Tenant structure if strict adherence to nested divs needed
+                                // Current laundries structure: div(gap-4) > [div(gap-2) > icon, label], value
                                 <div className="flex items-center gap-4">
                                     <div className="flex items-center gap-2">
                                         {item.icon}
@@ -143,7 +143,7 @@ const DisputeDetail = () => {
                             )}
 
                             {/* Unified Logic Attempt */}
-                            {/* If we strictly follow the Parents structure for all:
+                            {/* If we strictly follow the Laundries structure for all:
                                 <div className="flex items-center gap-2">
                                      {item.icon}
                                      <span>{item.label}:</span>

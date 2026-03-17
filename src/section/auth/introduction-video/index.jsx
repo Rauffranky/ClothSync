@@ -39,7 +39,7 @@ const IntroductionVideoSection = () => {
     <div className="w-full flex flex-col items-center">
       <h2 className="mb-4 font-medium text-center">Introduction Video</h2>
       <h6 className="mb-8 text-center max-w-[450px]">
-        A 30-60 video about your tutoring services will win you more work
+        A 30-60 video about your tenanting services will win you more work
       </h6>
 
       <div className="w-full mb-8">

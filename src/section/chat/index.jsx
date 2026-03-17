@@ -101,14 +101,14 @@ export default function Chat({ filterType = null }) {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.includes("/parents/support-chat")) {
+    if (location.pathname.includes("/laundries/support-chat")) {
       const rescheduleMessage = {
         id: "reschedule-msg-1",
         author: "System",
         role: "system",
         type: "reschedule",
         rescheduleDetails: {
-          tutor: "Mrs.James",
+          tenant: "Mrs.James",
           subject: "GCSE Maths",
           dates: [
             "Wednesday 30 September 2024",

@@ -213,7 +213,7 @@ export function ChatWindow({
 
   return (
     <CardOutline
-      bg="bg-transparent"
+      bg="bg-translaundry"
       border="border border-none"
       shadow="shadow-none"
       padding="0"
@@ -399,7 +399,7 @@ export function ChatWindow({
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Write your messages..."
                     rows={1}
-                    className="flex-1 border-0 p-0 text-sm sm:text-[15px] placeholder:text-gray-400 focus:outline-none focus:ring-0 resize-none bg-transparent max-h-32 overflow-y-auto"
+                    className="flex-1 border-0 p-0 text-sm sm:text-[15px] placeholder:text-gray-400 focus:outline-none focus:ring-0 resize-none bg-translaundry max-h-32 overflow-y-auto"
                     onKeyDown={(e) => {
                       if (e.key === "Enter" && !e.shiftKey) {
                         e.preventDefault();

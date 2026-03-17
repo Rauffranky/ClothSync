@@ -24,7 +24,7 @@ const Checkbox = ({
       <span
         className="
           w-4 h-4 p-2
-          rounded-md border-2 border-[#DCDCDC] bg-transparent
+          rounded-md border-2 border-[#DCDCDC]
           flex items-center justify-center relative
           transition-colors
 
@@ -42,7 +42,7 @@ const Checkbox = ({
         "
       />
 
-      {label && <h6 className="text-[18px]  leading-tight">{label}</h6>}
+      {label && <p className="text-[14px]  leading-tight">{label}</p>}
     </label>
   );
 };

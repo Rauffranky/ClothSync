@@ -12,13 +12,13 @@ const faqData = [
         id: "g1",
         question: "How do I get started with TuitionFarm?",
         answer:
-          "Getting started is easy! Simply sign up for an account, browse our list of expert tutors, and book your first lesson. Our platform is designed to make the process seamless and efficient.",
+          "Getting started is easy! Simply sign up for an account, browse our list of expert tenants, and book your first lesson. Our platform is designed to make the process seamless and efficient.",
       },
       {
         id: "g2",
         question: "Is there a free trial available?",
         answer:
-          "Many of our tutors offer a free introductory session. You can check the tutor's profile to see if they provide a trial period or a discounted first lesson.",
+          "Many of our tenants offer a free introductory session. You can check the tenant's profile to see if they provide a trial period or a discounted first lesson.",
       },
       {
         id: "g3",
@@ -28,15 +28,15 @@ const faqData = [
       },
       {
         id: "g4",
-        question: "How are tutors vetted?",
+        question: "How are tenants vetted?",
         answer:
-          "Every tutor on our platform undergoes a rigorous vetting process, including background checks and verification of their qualifications and experience.",
+          "Every tenant on our platform undergoes a rigorous vetting process, including background checks and verification of their qualifications and experience.",
       },
       {
         id: "g5",
-        question: "Can I change my tutor later?",
+        question: "Can I change my tenant later?",
         answer:
-          "Yes, you are free to change your tutor at any time if you feel the current match is not the best fit for your learning style.",
+          "Yes, you are free to change your tenant at any time if you feel the current match is not the best fit for your learning style.",
       },
     ],
   },
@@ -58,13 +58,13 @@ const faqData = [
     ],
   },
   {
-    category: "Finding Tutor",
+    category: "Finding Tenant",
     questions: [
       {
         id: "f1",
-        question: "How do I find the right tutor for me?",
+        question: "How do I find the right tenant for me?",
         answer:
-          "You can use our advanced search filters to sort tutors by subject, price, rating, and availability to find the perfect match.",
+          "You can use our advanced search filters to sort tenants by subject, price, rating, and availability to find the perfect match.",
       },
     ],
   },

@@ -7,7 +7,7 @@ import { DragDropUpload } from "../../../../components/UI/fileUpload";
 
 const HeroSectionSettings = () => {
     const [header, setHeader] = useState("Find");
-    const [description, setDescription] = useState("Hire the best tutors for private tuition and help secure your child's future.");
+    const [description, setDescription] = useState("Hire the best tenants for private tuition and help secure your child's future.");
     const [files, setFiles] = useState([]);
 
     const handleFilesAdded = (newFiles) => {

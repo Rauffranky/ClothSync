@@ -34,7 +34,7 @@ const PasswordStrengthBar = ({ password }) => {
 
     return (
         <div className="w-full mt-2">
-            <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
+            <div className="h-1.5 w-full bg-gray-200 dark:bg-[#465064] rounded-full overflow-hidden">
                 <div
                     className={`h-full ${getColor()} transition-all duration-300 ease-out`}
                     style={{ width: `${widthPercent}%` }}

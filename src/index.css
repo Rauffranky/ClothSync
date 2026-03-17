@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-primary: #2E7D32;
@@ -48,7 +49,7 @@ body {
   @apply bg-white;
   font-family: "Inter", sans-serif;
   font-size: 14px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  /* transition: background-color 0.2s ease, color 0.2s ease; */
 }
 
 html.dark {
@@ -86,23 +87,12 @@ html.dark body {
   color: #E5E7EB;
 }
 
-html.dark .bg-white {
-  background-color: #111827 !important;
-}
-
-html.dark .text-gray-700,
-html.dark .text-gray-800,
-html.dark .text-gray-900,
-html.dark .text-black {
-  color: #E5E7EB !important;
-}
-
 container {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-0;
 }
 
 h1 {
-  font-family: "Inter", sans-serif;
+  font-family: "  ter", sans-serif;
   font-size: clamp(28px, 5vw, 42px);
   /* Scales from 28px to 42px */
   font-weight: 700;
@@ -152,11 +142,11 @@ subtitle {
   display: block;
 }
 
-p {
+/* p {
   font-family: "Inter", sans-serif;
   font-size: 12px;
   font-weight: 400;
-}
+} */
 
 /* Hide scrollbar but keep scroll functionality */
 .hide-scrollbar {
@@ -334,6 +324,22 @@ p {
   padding-left: 0 !important;
 }
 
+/* Dark mode for language dropdown popup and hover */
+html.dark .ReactFlagsSelect-module_selectOptions__3LNBJ {
+  background: #23272f !important;
+  color: #E5E7EB !important;
+  border: 1px solid #334155 !important;
+}
+html.dark .ReactFlagsSelect-module_selectOption__3qjLz {
+  background: #23272f !important;
+  color: #E5E7EB !important;
+}
+html.dark .ReactFlagsSelect-module_selectOption__3qjLz:hover {
+  background: #2a313d !important;
+  color: #ffe066 !important;
+}
+
+
 
 
 
@@ -454,7 +460,7 @@ p {
   font-size: 11px !important;
   font-weight: 500 !important;
   cursor: pointer !important;
-  transition: all 0.2s ease !important;
+  /* transition: all 0.2s ease !important; */
   border-width: 1px !important;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
   margin-bottom: 4px !important;
@@ -519,7 +525,7 @@ p {
 
 /* Today Highlight */
 .fc .fc-day-today {
-  background-color: transparent !important;
+  background-color: translaundry !important;
 }
 
 .fc .fc-day-today .fc-col-header-cell-cushion {

@@ -17,14 +17,14 @@ const AuthLayout = () => {
     if (pathname === "/auth/account-type") {
       return {
         left: null,
-        right: "Select Account Type",
+        right: null,
       };
     }
 
     // Login
     if (pathname === "/auth/login") {
       return {
-        left: { to: "/auth/account-type", label: "Select Account Type" },
+        left: { to: "/auth/account-type", label: "" },
         right: null,
       };
     }
@@ -32,7 +32,7 @@ const AuthLayout = () => {
     // Registration
     if (pathname.includes("/auth/register")) {
       return {
-        left: { to: "/auth/account-type", label: "Select Account Type" },
+        left: { to: "/auth/account-type", label: "" },
         right: "Enter OTP",
       };
     }
@@ -56,7 +56,7 @@ const AuthLayout = () => {
         };
       } else {
         return {
-          left: { to: "/auth/register/tutor", label: "Create Account" },
+          left: { to: "/auth/register/tenant", label: "Create Account" },
           right: "Enter OTP",
         };
       }
@@ -65,7 +65,7 @@ const AuthLayout = () => {
     // Forgot Password
     if (pathname === "/auth/forgot-password") {
       return {
-        left: { to: "/auth/login", label: "Login" },
+        left: { to: "/auth/tenant-login", label: "Login" },
         right: "Forgot Password",
       };
     }
@@ -109,8 +109,8 @@ const AuthLayout = () => {
       };
     }
 
-    // Create Tutor Profile
-    if (pathname === "/auth/create-tutor-profile") {
+    // Create Tenant Profile
+    if (pathname === "/auth/create-tenant-profile") {
       return {
         left: { to: "/auth/2fa", label: "Phone Number" },
         right: "Introduction",
@@ -121,7 +121,7 @@ const AuthLayout = () => {
     if (pathname === "/auth/introduction-video") {
       return {
         left: {
-          to: "/auth/create-tutor-profile",
+          to: "/auth/create-tenant-profile",
           label: "General Information",
         },
         right: "Upload Documents",
@@ -176,31 +176,26 @@ const AuthLayout = () => {
 
   const navigation = getNavigation();
 
-  const isProfilePreview = pathname === "/auth/profile-preview";
 
   return (
-    <div className="min-h-screen app-theme-bg app-theme-text">
+    <div className="min-h-screen">
       <DashboardHeader hideAvatar={true} />
       <div
-        className={
-          isProfilePreview
-            ? "min-h-screen md:w-[1130px] w-full mx-auto px-4 py-8 pt-24"
-            : "min-h-screen md:w-[630px] w-full mx-auto px-4 py-8 pt-24"
-        }
+        className={"h-screen w-full mx-auto flex items-center justify-center"}
       >
-        <div className="">
+        <div className="min-w-full md:min-w-125 px-2">
           <CardOutline
             border="border border-border-2"
             shadow="shadow-inner-full"
             rounded="rounded-[40px]"
-            padding="md:px-8 px-4 py-8"
+            padding="md:px-6 px-4 py-6"
             bg="bg-bg-light"
             className="flex flex-col items-center text-center w-full"
           >
             {/* Navigation Breadcrumb */}
-            {navigation && (
+            {navigation && (navigation.left?.label || navigation.right) && (
               <div className="w-full flex justify-between items-center">
-                {navigation.left ? (
+                {navigation.left && navigation.left.label ? (
                   <Link
                     to={navigation.left.to}
                     className="flex items-center gap-1"
@@ -228,9 +223,9 @@ const AuthLayout = () => {
             )}
 
             <div className="w-full">
-              <div className="mb-2 flex justify-center">
+              {/* <div className="mb-2 flex justify-center">
                 <Logo />
-              </div>
+              </div> */}
               <Outlet />
             </div>
           </CardOutline>
