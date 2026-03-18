@@ -24,7 +24,7 @@ const Checkbox = ({
       <span
         className="
           w-4 h-4 p-2
-          rounded-md border-2 border-[#DCDCDC]
+          rounded-md border-2 border-border-2
           flex items-center justify-center relative
           transition-colors
 

@@ -10,7 +10,7 @@ const DashboardHeader = ({ onHamburger }) => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-4 md:px-8 justify-between shadow-xl transition-colors duration-200 ${
-        isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+        isDarkMode ? "bg-[#1F2937] text-white" : "bg-white text-gray-900"
       }`}
     >
       <div className="flex items-center gap-4">

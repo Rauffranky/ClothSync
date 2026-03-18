@@ -1,5 +1,11 @@
 {
   "language": "اللغة",
   "welcome": "مرحبًا",
-  "dashboard": "لوحة التحكم"
+  "dashboard": "لوحة التحكم",
+  "adminLogin": "تسجيل دخول المسؤول",
+  "emailAddress": "عنوان البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "login": "تسجيل الدخول",
+  "rememberMe": "تذكرني",
+  "forgotPassword": "هل نسيت كلمة المرور؟"
 }

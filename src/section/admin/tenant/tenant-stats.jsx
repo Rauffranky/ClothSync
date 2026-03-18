@@ -60,7 +60,7 @@ const AdminTenantDashboardStats = () => {
             {filteredStats.map((stat) => {
                 const IconComponent = stat.icon;
                 return (
-                    <CardOutline border="border-none" shadow="shadow-lg" key={stat.id} className="flex flex-col items-center justify-center gap-2 py-6">
+                    <CardOutline border="border-none" bg='bg-bg-light' shadow="shadow-lg" key={stat.id} className="flex flex-col items-center justify-center gap-2 py-6">
                         <div
                             className={`p-3 rounded-full border ${stat.borderColor}`}
                             style={{

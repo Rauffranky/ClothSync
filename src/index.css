@@ -831,6 +831,15 @@ html.dark .ReactFlagsSelect-module_selectOption__3qjLz:hover {
 }
 
 .ReactFlagsSelect-module_selectOption__3pcgW:hover, .ReactFlagsSelect-module_selectOption__3pcgW:focus {
+  background: #8c948c !important;
  
-  color: #2e7d32 !important;
+  /* color: #729274 !important; */
+}
+
+
+.ReactFlagsSelect-module_label__27pw9 {
+  color: #111 !important;
+}
+html.dark .ReactFlagsSelect-module_label__27pw9 {
+  color: #fff !important;
 }

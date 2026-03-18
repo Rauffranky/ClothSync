@@ -4,12 +4,11 @@ import DashboardHeader from "./DashboardHeader";
 import { Outlet, useLocation } from "react-router-dom";
 import SideBar from "./SideBar";
 import HeaderIcon from "../components/headerIcon";
-import { useTranslation } from 'react-i18next'; // Add this import
+import { useTranslation } from 'react-i18next';
 
 const Layout = ({ portal }) => {
-  const { i18n } = useTranslation(); // Add this hook
+  const { i18n } = useTranslation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [sidebarHovered, setSidebarHovered] = useState(false);
   const location = useLocation();
 
   // Check if current language is RTL (Arabic)
@@ -60,7 +59,6 @@ const Layout = ({ portal }) => {
           isOpen={sidebarOpen}
           onClose={() => setSidebarOpen(false)}
           portal={effectivePortal}
-          onHoverChange={setSidebarHovered}
         />
 
         {sidebarOpen && (
@@ -74,9 +72,7 @@ const Layout = ({ portal }) => {
           className={[
             "transition-all duration-300",
             isPortal 
-              ? (sidebarHovered 
-                  ? (isRTL ? "pt-16 lg:mr-68" : "pt-16 lg:ml-68") // RTL margin
-                  : (isRTL ? "pt-16 lg:mr-24" : "pt-16 lg:ml-24")) // RTL margin
+              ? (isRTL ? "pt-16 lg:mr-68" : "pt-16 lg:ml-68")
               : "mt-24 lg:ml-27",
             "px-3 lg:px-4 py-6",
           ].join(" ")}

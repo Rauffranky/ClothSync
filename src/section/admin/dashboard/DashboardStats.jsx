@@ -43,7 +43,7 @@ const AdminDashboardStats = () => {
             {/* Tenants Card */}
             <div
                 onClick={() => navigate("/admin/tenants")}
-                className="bg-white rounded-[16px] shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-between gap-6 min-h-[180px] cursor-pointer hover:shadow-md transition-shadow"
+                className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-between gap-6 min-h-45 cursor-pointer hover:shadow-md transition-shadow"
             >
                 <h3 className="text-[#333] font-medium text-[16px]">Tenants</h3>
 
@@ -57,7 +57,7 @@ const AdminDashboardStats = () => {
             {/* Laundries Card */}
             <div
                 onClick={() => navigate("/admin/laundries")}
-                className="bg-white rounded-[16px] shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-between gap-6 min-h-[180px] cursor-pointer hover:shadow-md transition-shadow"
+                className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-between gap-6 min-h-45 cursor-pointer hover:shadow-md transition-shadow"
             >
                 <h3 className="text-[#333] font-medium text-[16px]">Laundries</h3>
 
@@ -71,7 +71,7 @@ const AdminDashboardStats = () => {
             {/* Disputes Card */}
             <div
                 onClick={() => navigate("/admin/disputes")}
-                className="bg-white rounded-[16px] shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-between gap-6 min-h-[180px] cursor-pointer hover:shadow-md transition-shadow"
+                className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col items-center justify-between gap-6 min-h-45 cursor-pointer hover:shadow-md transition-shadow"
             >
                 <h3 className="text-[#333] font-medium text-[16px]">Disputes</h3>
 

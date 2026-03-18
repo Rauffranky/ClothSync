@@ -1,5 +1,11 @@
 {
   "language": "Language",
   "welcome": "Welcome",
-  "dashboard": "Dashboard"
+  "dashboard": "Dashboard",
+  "adminLogin": "Admin Login",
+  "emailAddress" : "Email Address",
+  "password": "Password",
+  "login": "Login",
+  "rememberMe": "Remember Me",
+  "forgotPassword": "Forgot Password?"
 }

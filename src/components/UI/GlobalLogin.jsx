@@ -6,11 +6,13 @@ import Button from "./button";
 import GlobalInput from "./Form/Input";
 import Checkbox from "./check-box";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const GlobalLogin = ({
   heading = "Login",
   forgotPasswordUrl = "/auth/forgot-password",
 }) => {
+  const { t } = useTranslation();
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
   const validationSchema = Yup.object({
@@ -79,7 +81,11 @@ const GlobalLogin = ({
             <div style={{ color: "red", marginBottom: 8 }}>{loginError}</div>
           )}
           <div>
-            <subtitle className=" text-label1 mb-2">Email address</subtitle>
+            <subtitle
+              className={`text-label1 mb-2 ${document.dir === "rtl" ? "text-right" : "text-left"}`}
+            >
+              {t("emailAddress")}
+            </subtitle>
             <GlobalInput
               placeholder="name@example.com"
               type="email"
@@ -98,7 +104,9 @@ const GlobalLogin = ({
           </div>
 
           <div>
-            <subtitle className=" text-label1 mb-2">Password</subtitle>
+            <subtitle 
+            className={`text-label1 mb-2 ${document.dir === "rtl" ? "text-right" : "text-left"}`}
+            >{t("password")}</subtitle>
             <div className="relative">
               <GlobalInput
                 placeholder="********"
@@ -122,29 +130,31 @@ const GlobalLogin = ({
 
           <div className="flex justify-between items-center">
             <Checkbox
-              label="Remember Me"
+              label={t("rememberMe")}
               checked={rememberMe}
               onChange={setRememberMe}
             />
-              {forgotPasswordUrl && (
-                <subtitle
+            {forgotPasswordUrl && (
+              <subtitle
                 className="cursor-pointer"
-                  onClick={() => {
-                    let role = "";
-                    if (heading.toLowerCase().includes("admin")) role = "admin";
-                    else if (heading.toLowerCase().includes("tenant")) role = "tenant";
-                    else if (heading.toLowerCase().includes("laundry")) role = "laundry";
-                    navigate(`${forgotPasswordUrl}?role=${role}`);
-                  }}
-                >
-                  Forgot Password?
-                </subtitle>
-              )}
+                onClick={() => {
+                  let role = "";
+                  if (heading.toLowerCase().includes("admin")) role = "admin";
+                  else if (heading.toLowerCase().includes("tenant"))
+                    role = "tenant";
+                  else if (heading.toLowerCase().includes("laundry"))
+                    role = "laundry";
+                  navigate(`${forgotPasswordUrl}?role=${role}`);
+                }}
+              >
+                {t("forgotPassword")}
+              </subtitle>
+            )}
           </div>
 
           <div className="pt-4 flex justify-center">
             <Button
-              label="Log In"
+              label={t("login")}
               variant="primary"
               fullWidth
               className="py-3! px-6! text-white md:w-57.5!"

@@ -13,19 +13,17 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { NAV } from "./ConfigNav";
-import { useTranslation } from 'react-i18next'; // Add this import
+import { useTranslation } from 'react-i18next';
 
 const SideBar = ({
   isOpen = false,
   onClose = () => {},
   portal = "client",
-  onHoverChange,
 }) => {
-  const { i18n } = useTranslation(); // Add this hook
+  const { i18n } = useTranslation();
   const location = useLocation();
   const menu = useMemo(() => NAV[portal] ?? NAV.client, [portal]);
   const navigate = useNavigate();
-  const [hovered, setHovered] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState({});
 
   // Check if current language is RTL (Arabic)
@@ -37,18 +35,13 @@ const SideBar = ({
     document.documentElement.lang = i18n.language;
   }, [i18n.language, isRTL]);
 
-  // Sync hover state to laundry
-  useEffect(() => {
-    onHoverChange?.(hovered);
-  }, [hovered, onHoverChange]);
-
   const isAdminPortal =
     portal === "admin" || location.pathname.startsWith("/admin");
 
   const isLabelerPortal =
     portal === "labeler" || location.pathname.startsWith("/labeler");
 
-  // 🔹 Logo click → conditional navigation
+  // Logo click → conditional navigation
   const handleLogo = () => {
     if (isAdminPortal) {
       navigate("/admin/dashboard");
@@ -79,7 +72,7 @@ const SideBar = ({
     }));
   };
   
-  // ✅ Check if any submenu of a menu item is active by current route
+  // Check if any submenu of a menu item is active by current route
   const isAnySubmenuActive = (submenus = []) =>
     submenus.some(
       (s) =>
@@ -87,7 +80,7 @@ const SideBar = ({
         location.pathname.startsWith(`${s.href}/`),
     );
 
-  // ✅ Build a lookup: { [id]: true/false } based on current route
+  // Build a lookup: { [id]: true/false } based on current route
   const activeSubmenuMap = useMemo(() => {
     const map = {};
     menu.forEach((item) => {
@@ -116,9 +109,8 @@ const SideBar = ({
 
     const isExpanded = !!expandedMenus[id];
 
-    // ✅ Screenshot style: group open -> same bg for laundry + submenu
-    const isGroupOpen =
-      hasSubmenus && (isExpanded || isSubmenuActive) && (hovered || isOpen);
+    // Group open when submenu is expanded or active
+    const isGroupOpen = hasSubmenus && (isExpanded || isSubmenuActive);
 
     return (
       <div
@@ -128,7 +120,7 @@ const SideBar = ({
           isGroupOpen ? "bg-[#E9F7E9] rounded-2xl p-2" : "",
         ].join(" ")}
       >
-        {/* Laundry Row */}
+        {/* Main Menu Row */}
         <div
           onClick={() => {
             if (hasSubmenus) {
@@ -143,10 +135,10 @@ const SideBar = ({
             "rounded-2xl overflow-hidden",
             isGroupOpen ? "bg-[#E9F7E9] text-gray-800" : "",
             !isGroupOpen && isActive ? "text-white" : "",
-            !isGroupOpen && !isActive ? "text-gray-600 hover:text-white" : "",
+            !isGroupOpen && !isActive ? "text-gray-600 dark:text-white hover:text-white" : "",
           ].join(" ")}
         >
-          {/* Gradient only when laundry is ACTIVE and NOT in group-open mode */}
+          {/* Gradient only when menu is ACTIVE and NOT in group-open mode */}
           {!isGroupOpen && (
             <div
               className={[
@@ -154,8 +146,8 @@ const SideBar = ({
                 isActive
                   ? "translate-x-0"
                   : isRTL 
-                    ? "translate-x-full group-hover:translate-x-0" // RTL animation
-                    : "-translate-x-full group-hover:translate-x-0", // LTR animation
+                    ? "translate-x-full group-hover:translate-x-0"
+                    : "-translate-x-full group-hover:translate-x-0",
               ].join(" ")}
             />
           )}
@@ -171,25 +163,22 @@ const SideBar = ({
             {badge && (
               <span className={[
                 "absolute -top-1 z-20 flex items-center justify-center h-4.5 w-4.5 text-[10px] font-bold rounded-full bg-orange-500 text-white border-2 border-white",
-                isRTL ? "-left-1.5" : "-right-1.5" // RTL badge position
+                isRTL ? "-left-1.5" : "-right-1.5"
               ].join(" ")}>
                 {badge}
               </span>
             )}
           </div>
 
-          {(hovered || isOpen) && (
-            <span className="relative z-10 font-medium whitespace-nowrap flex-1">
-              {label}
-            </span>
-          )}
+          <span className="relative z-10 font-medium whitespace-nowrap flex-1">
+            {label}
+          </span>
 
-          {hasSubmenus && (hovered || isOpen) && (
+          {hasSubmenus && (
             <div className="relative z-10">
               {isExpanded ? (
                 <ChevronDown size={18} />
               ) : (
-                // Rotate chevron based on RTL/LTR
                 <ChevronRight 
                   size={18} 
                   className={isRTL ? "rotate-180" : ""} 
@@ -200,7 +189,7 @@ const SideBar = ({
         </div>
 
         {/* Submenus */}
-        {hasSubmenus && isExpanded && (hovered || isOpen) && (
+        {hasSubmenus && isExpanded && (
           <div className="mt-2 space-y-1 px-2 pb-2">
             {submenus.map((submenu) => {
               const isSubActive =
@@ -245,18 +234,18 @@ const SideBar = ({
         />
       )}
 
-      {/* Mobile Sidebar - Direction based on RTL */}
+      {/* Mobile Sidebar */}
       <aside
         className={[
           "fixed z-9999 top-0 h-screen w-64 lg:hidden",
           "transform transition-transform duration-300 ease-out",
-          isRTL ? "right-0" : "left-0", // RTL positioning
+          "bg-white dark:bg-[#1F2937] shadow-lg",
+          isRTL ? "right-0" : "left-0",
           isOpen 
             ? isRTL ? "translate-x-0" : "translate-x-0"
-            : isRTL ? "translate-x-full" : "-translate-x-full", // RTL animation
+            : isRTL ? "translate-x-full" : "-translate-x-full",
         ].join(" ")}
         style={{
-          background: "white",
           boxShadow: "0 0 23.179px 0 rgba(0,0,0,0.45)",
         }}
       >
@@ -284,25 +273,13 @@ const SideBar = ({
         </nav>
       </aside>
 
-      {/* Desktop Sidebar - RTL positioning */}
+      {/* Desktop Sidebar - Fixed width w-64 */}
       <aside
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => {
-          setHovered(false);
-          setExpandedMenus((prev) => {
-            const next = {};
-            Object.keys(prev).forEach((key) => {
-              if (activeSubmenuMap[key]) next[key] = true;
-            });
-            return next;
-          });
-        }}
         className={`
           hidden lg:flex flex-col
-          fixed top-21 bottom-6
-          ${isRTL ? "right-4" : "left-4"} // RTL positioning
-          ${hovered ? "w-64" : "w-20"}
-          bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+          fixed top-18 bottom-2 w-64
+          ${isRTL ? "right-4" : "left-4"}
+          bg-white dark:bg-[#1F2937] rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]
           transition-all duration-300 ease-in-out
           z-100 overflow-hidden
         `}
@@ -313,7 +290,7 @@ const SideBar = ({
         </div>
 
         {/* Sticky Bottom Items */}
-        <div className="flex flex-col gap-2 pt-2 px-3 pb-1 bg-white">
+        <div className="flex flex-col gap-2 pt-2 px-3 pb-1 bg-white dark:bg-[#1F2937]">
           {bottomItems.map(renderLink)}
         </div>
       </aside>
